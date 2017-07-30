@@ -48,9 +48,9 @@ Service {
     }
 
     #mysql client
-    package { 'mysql57u':
+    package { 'mariadb':
       ensure => 'installed',
-      require => Ini_setting['ius-archive exclude'],
+      #require => Ini_setting['ius-archive exclude'],
     }
 
 #    package { 'unzip':
