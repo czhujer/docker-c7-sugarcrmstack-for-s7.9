@@ -34,7 +34,6 @@ RUN bash -c "source /etc/bashrc; \
              \"perl-Digest-SHA1\", \
              \"perl-ExtUtils-MakeMaker\", \
              \"perl-ExtUtils-Manifest\", \
-             \"perl-ExtUtils-MakeMaker\", \
              \"perl-Test-Simple\"]: \
              ensure => installed, \
           }\"; \
