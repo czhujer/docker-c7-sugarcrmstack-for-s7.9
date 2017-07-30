@@ -9,6 +9,15 @@ FROM sugarfactory/centos7-ssh-puppet:0.1-2
 MAINTAINER Patrik Majer <patrik.majer@sugarfactory.cz>
 
 # -----------------------------------------------------------------------------
+# fix symlink for module folder
+# -----------------------------------------------------------------------------
+RUN bash -c "if [ ! -L /etc/puppetlabs/code/modules ]; then
+    rm -rf /etc/puppetlabs/code/modules;
+    ln -s /etc/puppet/modules/ /etc/puppetlabs/code/modules
+  fi;
+  ";
+
+# -----------------------------------------------------------------------------
 # copy r10k config
 # -----------------------------------------------------------------------------
 ADD r10k/Puppetfile \
