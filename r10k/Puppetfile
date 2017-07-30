@@ -176,4 +176,5 @@ mod 'arioch-redis', '1.2.4'
 
 mod 'sugarcrmstack_ng',
   :git => 'https://github.com/SugarFactory/puppet-sugarcrmstack_ng',
-  :tag => 'v0.2'
+  :branch => 'master'
+ # :tag => 'v0.2'
