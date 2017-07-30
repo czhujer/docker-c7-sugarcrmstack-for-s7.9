@@ -14,6 +14,7 @@ MAINTAINER Patrik Majer <patrik.majer@sugarfactory.cz>
 RUN bash -c "if [ ! -L /etc/puppetlabs/code/modules ]; then \
     rm -rf /etc/puppetlabs/code/modules; \
     mkdir -p /etc/puppet/modules; \
+    mkdir -p /etc/puppetlabs/code; \
     ln -s /etc/puppet/modules/ /etc/puppetlabs/code/modules; \
   fi; \
   ";
