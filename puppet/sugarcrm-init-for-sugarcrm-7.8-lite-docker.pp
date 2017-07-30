@@ -10,7 +10,7 @@ Service {
 }
 
     class { 'sugarcrmstack_ng':
-
+      apache_php_apache_manage_user => false,
     }
 
     # change MC color scheme
