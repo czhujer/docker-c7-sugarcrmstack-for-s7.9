@@ -53,9 +53,9 @@ Service {
       require => Ini_setting['ius-archive exclude'],
     }
 
-    package { 'unzip':
-      ensure => 'installed',
-    }
+#    package { 'unzip':
+#      ensure => 'installed',
+#    }
 
    # users and sudo
 #   file {'sudoers-app-admin-as-apache':
