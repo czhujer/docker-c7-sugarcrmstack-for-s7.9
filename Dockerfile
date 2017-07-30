@@ -52,7 +52,7 @@ RUN bash -c "source /etc/bashrc; \
 
 RUN bash -c "source /etc/bashrc; \
            puppet apply -e \"\
-            perl::module { \"Crypt::RandPasswd\": \
+            perl::module { 'Crypt::RandPasswd': \
               exec_environment => [\\\"INSTALL_BASE=/usr/share/perl5\\\"], \
               package_downcase => false, \
               package_suffix   => \\\"\\\", \
