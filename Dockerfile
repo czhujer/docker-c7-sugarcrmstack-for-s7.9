@@ -61,6 +61,16 @@ RUN bash -c "source /etc/bashrc; \
           ";
 
 # -----------------------------------------------------------------------------
+# install utils
+# -----------------------------------------------------------------------------
+RUN bash -c "source /etc/bashrc; \
+           puppet apply -e  \"\
+            package { [\"man\", \
+             ensure => installed, \
+          }\"; \
+      ";
+
+# -----------------------------------------------------------------------------
 # copy sugarcrmstack and manifest
 # -----------------------------------------------------------------------------
 COPY puppet/sugarcrm-stack /etc/puppet/modules/sugarcrmstack
