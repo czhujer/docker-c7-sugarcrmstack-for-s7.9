@@ -65,7 +65,7 @@ RUN bash -c "source /etc/bashrc; \
 # -----------------------------------------------------------------------------
 RUN bash -c "source /etc/bashrc; \
            puppet apply -e  \"\
-            package { [\"man\", \
+            package { \"man\": \
              ensure => installed, \
           }\"; \
       ";
