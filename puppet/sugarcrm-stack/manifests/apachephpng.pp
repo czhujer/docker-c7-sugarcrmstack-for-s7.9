@@ -27,7 +27,7 @@ $use_php_mysqlnd=true,
 $manage_firewall=true,
 $manage_phpmyadmin_config=true, #false
 $manage_phpmyadmin_files=true,
-$phpmyadmin_files_repo_tag="RELEASE_4_7_3",
+$phpmyadmin_files_repo_tag="RELEASE_4_7_4",
 $phpmyadmin_files_repo_depth=1,
 $manage_sugarcrm_files_ownership=true,
 ){
