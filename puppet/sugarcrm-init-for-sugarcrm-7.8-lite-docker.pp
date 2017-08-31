@@ -85,3 +85,19 @@ Service {
      group   => 'apache',
      require => User['apache'],
    }
+
+   file { "/var/www":
+     ensure  => directory,
+     mode    => '0755',
+     owner   => 'apache',
+     group   => 'apache',
+     require => User['apache'],
+   }
+
+   file { "/var/log/httpd":
+     ensure  => directory,
+     mode    => '0755',
+     owner   => 'root',
+     group   => 'root',
+     require => User['apache'],
+   }
