@@ -53,7 +53,7 @@ services:
      - "14211:11211"
 
   sugarelastic:
-    image: elasticsearch:1.4.4
+    image: elasticsearch:1.7.5
     container_name: crmtest_elastic
     ports:
      - "14920:9200"
