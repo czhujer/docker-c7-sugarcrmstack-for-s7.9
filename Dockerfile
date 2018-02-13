@@ -4,7 +4,7 @@
 # CentOS-7 7.x x86_64 - EPEL,REMI repos, RVM, Ruby 2.3 / Supervisor / OpenSSH, Apache + PHP, ...
 # 
 # =============================================================================
-FROM sugarfactory/centos7-ssh-puppet:0.2-2
+FROM sugarfactory/centos7-ssh-puppet:0.3-2
 
 MAINTAINER Patrik Majer <patrik.majer@sugarfactory.cz>
 
