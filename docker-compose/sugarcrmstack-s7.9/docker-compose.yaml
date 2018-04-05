@@ -36,7 +36,7 @@ services:
      - "14022:22"
 
   sugardatabase:
-    image: mysql:5.6
+    image: mysql:5.7
     container_name: crmtest_db
     volumes_from:
      - data_mysql
@@ -47,7 +47,7 @@ services:
      - MYSQL_DATABASE=sugarcrm
 
   sugarmemcached:
-    image: memcached:1.4
+    image: memcached:latest
     container_name: crmtest_memcache
     ports:
      - "14211:11211"
