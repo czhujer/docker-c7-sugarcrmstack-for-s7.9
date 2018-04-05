@@ -66,6 +66,9 @@ my $config = $yaml->[0];
 my $zabbixagent_mysql_server_mysql_zabbix_pass = $yaml->[0]->{'zabbixagent::mysql-server::mysql_zabbix_pass'};
 my $zabbixagent_mysql_server_mysql_zabbix_pass_hash = $yaml->[0]->{'zabbixagent::mysql-server::mysql_zabbix_pass_hash'};
 
+my $zabbixagent_mysql_server2_mysql_zabbix_pass = $yaml->[0]->{'zabbixagent::mysql_server::mysql_zabbix_pass'};
+my $zabbixagent_mysql_server2_mysql_zabbix_pass_hash = $yaml->[0]->{'zabbixagent::mysql_server::mysql_zabbix_pass_hash'};
+
 #sugarcrmstack
 my $sugarcrmstack_mysql_root_password = $yaml->[0]->{'sugarcrmstack::mysql_root_password'};
 # -only for evidence
@@ -78,9 +81,15 @@ my $sugarcrmstack_mysqlbackup_mysqlbackup_login_user = $yaml->[0]->{'sugarcrmsta
 # -password for backup user, corresponding with hash above
 my $sugarcrmstack_mysqlbackup_mysqlbackup_login_password = $yaml->[0]->{'sugarcrmstack::mysqlbackup::mysqlbackup_login_password'};
 
+my $sugarcrmstack_ng_mysql_server_mysql_automysqlbackup_pass_hash = $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_automysqlbackup_pass_hash'};
+my $sugarcrmstack_ng_mysql_server_mysql_root_password = $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_root_password'};
+my $sugarcrmstack_ng_mysql_server_mysql_sugarcrm_pass_hash = $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_sugarcrm_pass_hash'};
+my $sugarcrmstack_ng_mysql_server_mysql_sugarcrm_password = $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_sugarcrm_password'};
+
 my $sugarcrmstack_back2own_login = $yaml->[0]->{'sugarcrmstack::back2own::login'};
 my $sugarcrmstack_back2own_password = $yaml->[0]->{'sugarcrmstack::back2own::password'};
 my $sugarcrmstack_back2own_upload_folder = $yaml->[0]->{'sugarcrmstack::back2own::upload_folder'};
+my $sugarcrmstack_back2own_upload_folder_dupl = $yaml->[0]->{'sugarcrmstack::back2own::upload_folder_dupl'};
 
 #
 # generate content
@@ -97,6 +106,14 @@ if ( $zabbixagent_mysql_server_mysql_zabbix_pass eq ""
     $yaml->[0]->{'zabbixagent::mysql-server::mysql_zabbix_pass'} = $zabbixagent_mysql_server_mysql_zabbix_pass;
 }
 
+if ( $zabbixagent_mysql_server2_mysql_zabbix_pass eq ""
+       or
+    $zabbixagent_mysql_server2_mysql_zabbix_pass eq "xxx_password"
+    ){
+    print "inserting password for element: \n\t \"zabbixagent::mysql_server2::mysql_zabbix_pass\"... \t";
+    $yaml->[0]->{'zabbixagent::mysql_server::mysql_zabbix_pass'} = $zabbixagent_mysql_server_mysql_zabbix_pass;
+}
+
 if ( $zabbixagent_mysql_server_mysql_zabbix_pass_hash eq ""
        or
      $zabbixagent_mysql_server_mysql_zabbix_pass_hash eq "*963DA0EC66FD8B7B223F74BE2EBC53C3EAF487B2"
@@ -106,6 +123,14 @@ if ( $zabbixagent_mysql_server_mysql_zabbix_pass_hash eq ""
     print $zabbixagent_mysql_server_mysql_zabbix_pass_hash . "\n";
 
     $yaml->[0]->{'zabbixagent::mysql-server::mysql_zabbix_pass_hash'} = $zabbixagent_mysql_server_mysql_zabbix_pass_hash;
+}
+
+if ( $zabbixagent_mysql_server2_mysql_zabbix_pass_hash eq ""
+       or
+     $zabbixagent_mysql_server2_mysql_zabbix_pass_hash eq "*963DA0EC66FD8B7B223F74BE2EBC53C3EAF487B2"
+   ){
+    print "insering password for element: \n\t \"zabbixagent::mysql_server2::mysql_zabbix_pass_hash\"... \t";
+    $yaml->[0]->{'zabbixagent::mysql_server::mysql_zabbix_pass_hash'} = $zabbixagent_mysql_server_mysql_zabbix_pass_hash;
 }
 
 if ( $sugarcrmstack_mysql_root_password eq ""
@@ -119,6 +144,14 @@ if ( $sugarcrmstack_mysql_root_password eq ""
     $yaml->[0]->{'sugarcrmstack::mysql_root_password'} = $sugarcrmstack_mysql_root_password;
 }
 
+if ($sugarcrmstack_ng_mysql_server_mysql_root_password eq ""
+      or
+    $sugarcrmstack_ng_mysql_server_mysql_root_password eq "topSecRetPassword"
+   ){
+     print "inserting password for element: \n\t \"sugarcrmstack_ng::mysql_server_mysql_root_password\"... \t";
+    $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_root_password'} = $sugarcrmstack_mysql_root_password;
+}
+
 if ( $sugarcrmstack_mysql_sugarcrm_password eq ""
         or
      $sugarcrmstack_mysql_sugarcrm_password eq "sugarcrmpassword"
@@ -130,6 +163,14 @@ if ( $sugarcrmstack_mysql_sugarcrm_password eq ""
     $yaml->[0]->{'sugarcrmstack::mysql_sugarcrm_password'} = $sugarcrmstack_mysql_sugarcrm_password;
 }
 
+if ( $sugarcrmstack_ng_mysql_server_mysql_sugarcrm_password eq ""
+      or
+     $sugarcrmstack_ng_mysql_server_mysql_sugarcrm_password eq "sugarcrmpassword"
+   ){
+    print "insering password for element: \n\t \"sugarcrmstack_ng::mysql_server_mysql_sugarcrm_password\"... \t";
+    $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_sugarcrm_password'} = $sugarcrmstack_mysql_sugarcrm_password;
+}
+
 if ( $sugarcrmstack_mysql_sugarcrm_pass_hash eq ""
         or
      $sugarcrmstack_mysql_sugarcrm_pass_hash eq "*A57E7B25C595673A05CE382D69DBA670AABF7FB4"
@@ -139,6 +180,14 @@ if ( $sugarcrmstack_mysql_sugarcrm_pass_hash eq ""
     print $sugarcrmstack_mysql_sugarcrm_pass_hash . "\n";
 
     $yaml->[0]->{'sugarcrmstack::mysql_sugarcrm_pass_hash'} = $sugarcrmstack_mysql_sugarcrm_pass_hash;
+}
+
+if ( $sugarcrmstack_ng_mysql_server_mysql_sugarcrm_pass_hash eq ""
+        or
+    $sugarcrmstack_ng_mysql_server_mysql_sugarcrm_pass_hash eq "*A57E7B25C595673A05CE382D69DBA670AABF7FB4"
+  ){
+  print "inserting hash for element: \n\t \"sugarcrmstack_ng::_mysql_server_mysql_sugarcrm_pass_hash\"... \t";
+  $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_sugarcrm_pass_hash'} = $sugarcrmstack_mysql_sugarcrm_pass_hash;
 }
 
 if ( $sugarcrmstack_mysqlbackup_mysqlbackup_login_user eq "")
@@ -172,6 +221,14 @@ if ( $sugarcrmstack_mysql_automysqlbackup_pass_hash eq ""
     $yaml->[0]->{'sugarcrmstack::mysql_automysqlbackup_pass_hash'} = $sugarcrmstack_mysql_automysqlbackup_pass_hash;
 }
 
+if ( $sugarcrmstack_ng_mysql_server_mysql_automysqlbackup_pass_hash eq ""
+        or
+     $sugarcrmstack_ng_mysql_server_mysql_automysqlbackup_pass_hash eq "*CFD5D603D9CAB79D727124A2BCEF3EF427D63CCC"
+    ){
+    print "inserting hash for element: \n\t \"sugarcrmstack::mysql_server_mysql_automysqlbackup_login_pass_hash\"... \t";
+    $yaml->[0]->{'sugarcrmstack_ng::mysql_server_mysql_automysqlbackup_pass_hash'} = $sugarcrmstack_mysql_automysqlbackup_pass_hash;
+}
+
 if ( $sugarcrmstack_back2own_login eq ""){
     print "generating hash for element: \n\t \"sugarcrmstack::back2own::login\"... \t";
     print $yaml->[0]->{'sugarcrmstack::back2own::login'} = $facter_fqdn . ".sf";
@@ -185,9 +242,15 @@ if ( $sugarcrmstack_back2own_password eq "" ){
     print "\n";
 }
 
-if ( $sugarcrmstack_back2own_upload_folder eq "" ){
-    print "generating hash for element: \n\t \"sugarcrmstack::back2own::upload_folder\"... \t";
-    print $yaml->[0]->{'sugarcrmstack::back2own::upload_folder'} = $facter_fqdn . ".sf";
+#if ( $sugarcrmstack_back2own_upload_folder eq "" ){
+#    print "generating hash for element: \n\t \"sugarcrmstack::back2own::upload_folder\"... \t";
+#    print $yaml->[0]->{'sugarcrmstack::back2own::upload_folder'} = $facter_fqdn . ".sf";
+#    print "\n";
+#}
+
+if ( $sugarcrmstack_back2own_upload_folder_dupl eq "" ){
+    print "generating hash for element: \n\t \"sugarcrmstack::back2own::upload_folder_dupl\"... \t";
+    print $yaml->[0]->{'sugarcrmstack::back2own::upload_folder_dupl'} = "/" . $facter_fqdn . ".sf-mount/bc-dupl-" . $facter_fqdn . ".sf";
     print "\n";
 }
 
