@@ -19,7 +19,7 @@ Service {
       memcached_server_enable         => true,
       memcached_php_module_handle     => true,
       #
-      apache_php_php_pkg_version      => '5.6.34',
+      apache_php_php_pkg_version      => '5.6.35',
       apache_php_php_pkg_build        => '1',
       #
       apache_php_xdebug_module_manage     => true,
@@ -118,4 +118,3 @@ Service {
      group   => 'root',
      require => User['apache'],
    }
-
