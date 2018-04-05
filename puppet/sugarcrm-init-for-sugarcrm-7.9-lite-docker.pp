@@ -10,7 +10,24 @@ Service {
 }
 
     class { 'sugarcrmstack_ng':
-      apache_php_apache_manage_user => false,
+      #
+      users_env_manage                => true,
+      apache_mysql_config_manage      => true,
+      #
+      apache_php_apache_manage_user   => false,
+      #
+      memcached_server_enable         => true,
+      memcached_php_module_handle     => true,
+      #
+      apache_php_php_pkg_version      => '5.6.34',
+      apache_php_php_pkg_build        => '1',
+      #
+      apache_php_xdebug_module_manage     => true,
+      apache_php_xdebug_module_ensure     => 'present',
+      apache_php_xdebug_module_settings   => {
+        'xdebug.remote_enable' => '1',
+        'xdebug.default_enable' => '0',
+        },
     }
 
     # change MC color scheme
@@ -101,3 +118,4 @@ Service {
      group   => 'root',
      require => User['apache'],
    }
+
