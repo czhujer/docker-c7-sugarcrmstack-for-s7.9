@@ -1,5 +1,5 @@
 #
-# puppetfile for r10k
+# puppetfile v0.11-devel
 #
 
 # https://github.com/puppetlabs/r10k/blob/master/r10k.yaml.example
@@ -180,7 +180,8 @@ mod 'camptocamp-systemd', '1.1.1'
 
 mod 'sugarcrmstack_ng',
   :git => 'https://github.com/SugarFactory/puppet-sugarcrmstack_ng',
-  :tag => 'v0.10'
+  #:tag => 'v0.11'
+  :branch => 'devel'
 
 mod 'herculesteam-augeasproviders_core', '2.1.3'
 
