@@ -16,7 +16,7 @@ Service {
       #
       apache_php_apache_manage_user   => false,
       #
-      memcached_server_enable         => true,
+      #memcached_server_enable         => false,
       memcached_php_module_handle     => true,
       #
       apache_php_php_pkg_version      => '5.6.35',
