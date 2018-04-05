@@ -3,7 +3,7 @@ docker-c7-sugarcrmstack-for-s7.8
 
 Docker Images of CentOS-7 7.x x86_64
 
-Includes SSH server, RVM, ruby 2.3, puppet 4.x, Apache 2.4 + PHP 5.6
+Includes SSH server, RVM, ruby 2.4, puppet 4.x, Apache 2.4 + PHP 5.6
 SSH server includes public key authentication, Automated password generation and supports custom configuration via environment variables.
 
 ## Overview & links

@@ -75,8 +75,8 @@ RUN bash -c "source /etc/bashrc; \
 # -----------------------------------------------------------------------------
 COPY puppet/sugarcrm-stack /etc/puppet/modules/sugarcrmstack
 
-ADD puppet/sugarcrm-init-for-sugarcrm-7.8-lite-docker.pp \
-    /etc/puppet/manifests/sugarcrm-init-for-sugarcrm-7.8-lite-docker.pp
+ADD puppet/sugarcrm-init-for-sugarcrm-7.9-lite-docker.pp \
+    /etc/puppet/manifests/sugarcrm-init-for-sugarcrm-7.9-lite-docker.pp
 
 RUN bash -c "source /etc/bashrc; puppet apply /etc/puppet/manifests"
 
