@@ -14,7 +14,7 @@ services:
      - data_sugarcrm:/var/www/html/sugarcrm:z
 
   sugarweb:
-    image: sugarfactory/c7-sugarcrmstack-for-s7.8:v1.0.3-2
+    image: sugarfactory/c7-sugarcrmstack-for-s7.9:v1.0.5-2
     container_name: crmtest_web
     volumes_from:
      - data_sugarcrm
@@ -45,6 +45,8 @@ services:
     environment:
      - MYSQL_ROOT_PASSWORD=heslo
      - MYSQL_DATABASE=sugarcrm
+     - MYSQL_USER=sugarcrm
+     - MYSQL_PASSWORD=sugarpass
 
   sugarmemcached:
     image: memcached:latest
