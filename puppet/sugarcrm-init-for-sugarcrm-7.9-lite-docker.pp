@@ -23,9 +23,9 @@ Service {
       apache_php_php_pkg_build        => '1',
       #
       apache_php_xdebug_module_manage     => true,
-      apache_php_xdebug_module_ensure     => 'present',
+      apache_php_xdebug_module_ensure     => 'absent',
       apache_php_xdebug_module_settings   => {
-        'xdebug.remote_enable' => '1',
+        'xdebug.remote_enable' => '0',
         'xdebug.default_enable' => '0',
         },
     }
@@ -68,6 +68,11 @@ Service {
     package { 'mariadb':
       ensure => 'installed',
       #require => Ini_setting['ius-archive exclude'],
+    }
+
+    # add util for data restore
+    package{ 'duplicity':
+      ensure => installed,
     }
 
 #    package { 'unzip':
