@@ -24,7 +24,7 @@ RUN bash -c "if [ ! -L /etc/puppetlabs/code/modules ]; then \
 # -----------------------------------------------------------------------------
 RUN bash -c "if [ ! -L /etc/puppetlabs/puppet/hiera.yaml ]; then \
   rm -rf /etc/puppetlabs/puppet/hiera.yaml; \
-  cd /etc/puppetlabs/puppet && ln -s /etc/puppet/hiera.yaml ./; \
+  cd /etc/puppetlabs/puppet; ln -s /etc/puppet/hiera.yaml ./; \
 fi; \
 ";
 
