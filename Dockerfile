@@ -23,8 +23,8 @@ RUN bash -c "if [ ! -L /etc/puppetlabs/code/modules ]; then \
 # fix symlink for hiera config
 # -----------------------------------------------------------------------------
 RUN bash -c "if [ ! -L /etc/puppetlabs/puppet/hiera.yaml ]; then \
-  rm -rf /etc/puppetlabs/puppet/hiera.yaml \
-  cd /etc/puppetlabs/puppet && ln -s /etc/puppet/hiera.yaml ./ \
+  rm -rf /etc/puppetlabs/puppet/hiera.yaml; \
+  cd /etc/puppetlabs/puppet && ln -s /etc/puppet/hiera.yaml ./; \
 fi; \
 ";
 
