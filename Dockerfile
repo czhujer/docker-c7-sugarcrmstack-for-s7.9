@@ -2,7 +2,7 @@
 # sugarfactory/c7-sugarcrmstack-for-s7.8
 #
 # CentOS-7 7.x x86_64 - EPEL,REMI repos, RVM, Ruby 2.3 / Supervisor / OpenSSH, Apache + PHP, ...
-# 
+#
 # =============================================================================
 FROM sugarfactory/centos7-ssh-puppet:0.4-2
 
@@ -18,6 +18,15 @@ RUN bash -c "if [ ! -L /etc/puppetlabs/code/modules ]; then \
     ln -s /etc/puppet/modules/ /etc/puppetlabs/code/modules; \
   fi; \
   ";
+
+# -----------------------------------------------------------------------------
+# fix symlink for hiera config
+# -----------------------------------------------------------------------------
+RUN bash -c "if [ ! -L /etc/puppetlabs/puppet/hiera.yaml ]; then \
+  rm -rf /etc/puppetlabs/puppet/hiera.yaml \
+  cd /etc/puppetlabs/puppet && ln -s /etc/puppet/hiera.yaml ./ \
+fi; \
+";
 
 # -----------------------------------------------------------------------------
 # copy r10k config
