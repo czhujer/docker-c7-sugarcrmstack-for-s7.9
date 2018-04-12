@@ -14,7 +14,7 @@ services:
      - data_sugarcrm:/var/www/html/sugarcrm:z
 
   sugarweb:
-    image: sugarfactory/c7-sugarcrmstack-for-s7.9:v1.0.5-2
+    image: sugarfactory/c7-sugarcrmstack-for-s7.9:v1.0.6-2
     container_name: crmtest_web
     volumes_from:
      - data_sugarcrm
