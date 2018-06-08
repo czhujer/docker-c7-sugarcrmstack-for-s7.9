@@ -1,0 +1,42 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sugarcrmstack79-web
+spec:
+  selector:
+    matchLabels:
+      app: sugarcrmstack79-web
+      tier: frontend
+#  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sugarcrmstack79-web
+        tier: frontend
+    spec:
+      containers:
+      - name: sugarcrmstack79-web
+        image: sugarfactory/c7-sugarcrmstack-for-s7.9:v1.0.6-2
+#        env:
+#        - name: GET_HOSTS_FROM
+#          value: dns
+        ports:
+        - containerPort: 443
+          name: https
+        - containerPort: 80
+          name: http
+        - containerPort: 22
+          name: ssh
+        volumeMounts:
+            - name: sugarcrmstack79-webroot-storage
+              mountPath: /var/www/html/sugarcrm
+                  - web_logs:/var/log:Z
+            #- web_hiera_data:/etc/puppet/hieradata:Z
+            #- web_puppet_data:/etc/puppet/manifests:Z
+            #- web_apache_ssh:/var/www/.ssh:Z
+            #- web_puppet_sugarcrmstack:/etc/puppet/modules/sugarcrmstack:Z
+      volumes:
+        - name: sugarcrmstack79-webroot-storage
+          emptyDir: {}
+
+

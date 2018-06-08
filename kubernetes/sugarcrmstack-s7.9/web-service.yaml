@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sugarcrmstack79-web
+  labels:
+    app: sugarcrmstack79
+    tier: frontend
+spec:
+  # comment or delete the following line if you want to use a LoadBalancer
+  type: NodePort 
+  # if your cluster supports it, uncomment the following to automatically create
+  # an external load-balanced IP for the frontend service.
+  # type: LoadBalancer
+  ports:
+  - port: 10443
+    targetPort: 443
+    name: https
+  - port: 10080
+    targetPort: 80
+    name: http
+  - port: 10022
+    targetPort: 22
+    name: ssh
+
+  selector:
+    app: sugarcrmstack79-web
+    tier: frontend
+
