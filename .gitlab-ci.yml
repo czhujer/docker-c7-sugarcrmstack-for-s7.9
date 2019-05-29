@@ -4,6 +4,11 @@
 # https://about.gitlab.com/2017/07/11/dockerizing-review-apps/
 # https://gitlab.com/SugarFactory/docker-c7-sugarcrmstack-for-s7.9
 #
+image: docker:stable
+
+before_script:
+  - docker info
+
 stages:
   - build
 #
